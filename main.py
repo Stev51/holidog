@@ -1,12 +1,19 @@
-import discord, logging, datetime
+import discord, logging, datetime, os
 from discord.ext import commands, tasks
 from discord import app_commands
+
+print("> Beginning bot setup")
+
+dirpath = os.path.dirname(os.path.realpath(__file__))
+os.chdir(dirpath)
+
+print(f"> Changed working directory to {os.getcwd()}")
 
 import autochannels
 from self_secrets import SECRETS
 from holidays import HOLIDAYS
 
-print("> Beginning bot setup")
+print("> Imported custom modules")
 
 CST = datetime.timezone(-datetime.timedelta(hours=5))
 active_tasks = {}
